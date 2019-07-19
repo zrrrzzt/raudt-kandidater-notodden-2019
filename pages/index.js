@@ -124,6 +124,18 @@ const Index = () => {
             .candidates a:hover, .candidates a:active {
               color: #e52437;
             }
+            .footer {
+              margin:0;
+              padding: 0;
+              display: flex;
+              background-color: #f5f7f8;
+              justify-content: space-between;
+              align-content: center;
+            }
+            .logo {
+              width: 50px;
+              padding: 15px;
+            }
             @media only screen and (min-width: 768px) {
               main {
                 width: 500px;
@@ -137,12 +149,15 @@ const Index = () => {
             }
           `}
           </style>
+          <div className="footer">
+            <div className="description">
+              {candidate.description}
+            </div>
+            <img src="static/images/logo.svg" alt="Rødt logo" className="logo"/>
+          </div>
         </div>
         <div className='save-wrapper'>
           <img src='/static/floppy.png' className='save-link' alt='Trykk for å lagre som bilde' role='button' tabIndex='0' onClick={saveCard} />
-        </div>
-        <div className="description">
-          {candidate.name} ({candidate.age}) - {candidate.description}
         </div>
         <div className='candidates'>
           <h2>Flere flotte kandidater</h2>
