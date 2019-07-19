@@ -1,14 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
 import domToImage from 'dom-to-image'
 import { saveAs } from 'file-saver'
-import candidates from '../lib/candidates'
-import getCandidate from '../lib/get-candidate'
+import candidates from '../../lib/candidates'
+import getCandidate from '../../lib/get-candidate'
 
-const Index = () => {
-  const [candidate] = useState(getCandidate('cecilie'))
-  
+function getCid (path) {
+  return {
+    cid: path.split('/').pop()
+  }
+}
+
+const Candidate = () => {
+  const router = useRouter()
+  const { cid } = getCid(router.asPath)
+  const candidate = getCandidate(cid)
+
   const saveCard = async event => {
     event.preventDefault()
     const blob = await domToImage.toBlob(window.document.getElementById('candidate-card'))
@@ -18,24 +27,24 @@ const Index = () => {
   return (
     <div>
       <Head>
-        <link rel='apple-touch-icon' href='static/apple-touch-icon.png' />
-        <link rel='icon' type='image/png' sizes='192x192' href='static/android-icon-192x192.png' />
-        <link rel='icon' type='image/png' sizes='32x32' href='static/favicon-32x32.png' />
-        <link rel='icon' type='image/png' sizes='16x16' href='static/favicon-16x16.png' />
-        <link rel='manifest' href='static/manifest.json' />
+        <link rel='apple-touch-icon' href='../static/apple-touch-icon.png' />
+        <link rel='icon' type='image/png' sizes='192x192' href='../static/android-icon-192x192.png' />
+        <link rel='icon' type='image/png' sizes='32x32' href='../static/favicon-32x32.png' />
+        <link rel='icon' type='image/png' sizes='16x16' href='../static/favicon-16x16.png' />
+        <link rel='manifest' href='../static/manifest.json' />
         <meta name='msapplication-TileColor' content='#ffffff' />
-        <meta name='msapplication-TileImage' content='static/ms-icon-144x144.png' />
+        <meta name='msapplication-TileImage' content='../static/ms-icon-144x144.png' />
         <meta name='theme-color' content='#ffffff' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <meta name='description' content='Møt listekandidatene for Rødt Notodden' />
-        <title>Rødt Notodden valg 2019</title>
+        <title>Rødt Notodden valg 2019 - {candidate.name}</title>
       </Head>
       <main>
-        <h1>Rødt Notodden valg 2019</h1>
+        <h1>{candidate.name}</h1>
         <div className={'wrapper'} id='candidate-card'>
           <div className="candidate">
             <div className="img-wrapper">
-              <img src={`static/images/${candidate.image}`} alt={`${candidate.name}: ${candidate.statement}`} className="candidate" />
+              <img src={`../static/images/${candidate.image}`} alt={`${candidate.name}`} className="candidate" />
             </div>
             <div className='statement'>
               {candidate.statement}
@@ -156,19 +165,19 @@ const Index = () => {
               <b>{candidate.name}</b><br/>
               {candidate.description}
             </div>
-            <img src="static/logo.svg" alt="Rødt logo" className="logo"/>
+            <img src="../static/logo.svg" alt="Rødt logo" className="logo"/>
           </div>
         </div>
         <div className='save-wrapper'>
-          <img src='/static/floppy.png' className='save-link' alt='Trykk for å lagre som bilde' role='button' tabIndex='0' onClick={saveCard} />
+          <img src='../static/floppy.png' className='save-link' alt='Trykk for å lagre som bilde' role='button' tabIndex='0' onClick={saveCard} />
         </div>
         <div className='candidates'>
           <h2>Flere flotte kandidater</h2>
-          {candidates.map(candidate => <p key={`candidate-${candidate.id}`}><Link href='/kandidater/[cid]' as={`/kandidater/${candidate.id}`}><a>{candidate.name}</a></Link></p>)}
+          {candidates.map(candidate => <p key={`candidate-${candidate.id}`}><Link href='[cid]' as={`${candidate.id}`}><a>{candidate.name}</a></Link></p>)}
         </div>
       </main>
     </div>
   )
 }
 
-export default Index
+export default Candidate
