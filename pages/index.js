@@ -59,7 +59,7 @@ const Index = () => {
               justify-content: center;
             }
             main {
-              width: 500px;
+              width: 100%;
               margin: 0;
               padding: 0;
             }
@@ -70,9 +70,6 @@ const Index = () => {
             img.candidate {
               width: 500px;
               align-self: center;
-            }
-            img.logo {
-              width: 32px;
             }
             img.save-link {
               height: 40px;
@@ -85,40 +82,30 @@ const Index = () => {
               display: flex;
               justify-content: center;
             }
-            .heading {
-              display: flex;
-              justify-content: center;
-              margin-bottom: 10px;
-            }
             .wrapper {
-              padding-top: 10px 5px;
-              width: 500px;
+              padding-top: 10px;
               display: flex;
               flex-direction: column;
             }
             .candidate {
               background-color: #e52437;
-              width: 500px;
             }
             .description {
-              width: 500px;
               text-align: left;
-              font-weight: 500;
               font-size: 18px;
               padding: 15px;
               color: black;
             }
             .statement {
               text-align: left;
-              font-weight: 500;
               font-size: 22px;
               padding: 15px;
               color: white;
             }
             .save-wrapper {
-              width: 500px;
               margin-top: 10px;
               text-align: right;
+              display: none;
             }
             .save-link {
               text-decoration: none;
@@ -129,13 +116,21 @@ const Index = () => {
               outline: none;
             }
             .candidates {
-              width: 600px;
+              padding: 15px;
             }
             .candidates a, .candidates a:visited {
               color: #2e3c46;
             }
             .candidates a:hover, .candidates a:active {
               color: #e52437;
+            }
+            @media only screen and (min-width: 768px) {
+              main {
+                width: 500px;
+              }
+              .save-wrapper {
+                display: block;
+              }
             }
           `}
           </style>
