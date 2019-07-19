@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
-import Link from 'next/link'
 import domToImage from 'dom-to-image'
 import { saveAs } from 'file-saver'
 import candidates from '../lib/candidates'
 import getCandidate from '../lib/get-candidate'
 
 const Index = () => {
-  const [candidate] = useState(getCandidate('cecilie'))
-  
+  const [candidate, setCandidate] = useState(getCandidate('cecilie'))
+
+  const switchCandidate = event => {
+    event.preventDefault()
+    const cid = event.target.id
+    setCandidate(getCandidate(cid))
+  }
+
   const saveCard = async event => {
     event.preventDefault()
     const blob = await domToImage.toBlob(window.document.getElementById('candidate-card'))
@@ -164,7 +169,8 @@ const Index = () => {
         </div>
         <div className='candidates'>
           <h2>Flere flotte kandidater</h2>
-          {candidates.map(candidate => <p key={`candidate-${candidate.id}`}><Link href='/kandidater/[cid]' as={`/kandidater/${candidate.id}`}><a>{candidate.name}</a></Link></p>)}
+          {candidates.map(candidate => <p key={`candidate-${candidate.id}`}>
+            <a href='/' id={candidate.id} onClick={switchCandidate}>{candidate.name}</a></p>)}
         </div>
       </main>
     </div>
