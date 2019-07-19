@@ -38,9 +38,10 @@ const Index = () => {
         <title>Rødt Notodden valg 2019</title>
       </Head>
       <main>
+        <h1>Rødt Notodden valg 2019</h1>
         <div className={'wrapper'} id='candidate-card'>
           <div className="candidate">
-            <h1>{candidate.name}</h1>
+            <div className="header">{candidate.name}</div>
             <div className="img-wrapper">
               <img src={candidate.image} alt={`${candidate.name}: ${candidate.statement}`} className="candidate" />
             </div>
@@ -55,6 +56,7 @@ const Index = () => {
               padding: 0;
               font-family: GT Walsheim,Helvetica,sans-serif;
               background-color: white;
+              color: #2e3c46;
               display: flex;
               justify-content: center;
             }
@@ -64,7 +66,6 @@ const Index = () => {
               padding: 0;
             }
             h1 {
-              color: white;
               text-align: center;
             }
             img.candidate {
@@ -83,7 +84,8 @@ const Index = () => {
               justify-content: center;
             }
             .wrapper {
-              padding-top: 10px;
+              padding: 0;
+              margin: 0;
               display: flex;
               flex-direction: column;
             }
@@ -94,7 +96,9 @@ const Index = () => {
               text-align: left;
               font-size: 18px;
               padding: 15px;
-              color: black;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
             }
             .statement {
               text-align: left;
@@ -123,6 +127,12 @@ const Index = () => {
             }
             .candidates a:hover, .candidates a:active {
               color: #e52437;
+            }
+            .header {
+              color: white;
+              text-align: center;
+              font-size: 22px;
+              padding: 15px;
             }
             .footer {
               margin:0;
