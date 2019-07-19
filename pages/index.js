@@ -163,7 +163,7 @@ const Index = () => {
             <div className="description">
               {candidate.description}
             </div>
-            <img src="static/images/logo.svg" alt="Rødt logo" className="logo"/>
+            <img src="static/logo.svg" alt="Rødt logo" className="logo"/>
           </div>
         </div>
         <div className='save-wrapper'>
