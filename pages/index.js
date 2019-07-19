@@ -18,7 +18,6 @@ const Index = () => {
   
   const showCandidate = event => {
     event.preventDefault()
-    console.log(event.target.id)
     setCandidate(getCandidate(event.target.id))
   }
 
