@@ -25,7 +25,7 @@ const Index = () => {
   const saveCard = async event => {
     event.preventDefault()
     const blob = await domToImage.toBlob(window.document.getElementById('candidate-card'))
-    saveAs(blob, `hanna-${new Date().getTime()}.png`)
+    saveAs(blob, `${candidate.id}-${new Date().getTime()}.png`)
   }
 
   return (
@@ -103,6 +103,7 @@ const Index = () => {
               color: white;
             }
             .save-wrapper {
+              width: 600px;
               margin-top: 10px;
               text-align: right;
             }
@@ -134,7 +135,7 @@ const Index = () => {
           {candidate.name} ({candidate.age}) - {candidate.description}
         </div>
         <div className='candidates'>
-          <h2>Alle våre kandidater</h2>
+          <h2>Flere flotte kandidater</h2>
           {candidates.map(candidate => <p><a href='' onClick={showCandidate} id={candidate.id} key={`candidate-${candidate.id}`}>{candidate.name}</a></p>)}
         </div>
       </main>
