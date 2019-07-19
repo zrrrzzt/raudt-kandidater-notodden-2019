@@ -51,11 +51,17 @@ const Index = () => {
           <style jsx global>
             {`
             body {
+              margin: 0;
+              padding: 0;
               font-family: GT Walsheim,Helvetica,sans-serif;
               background-color: white;
               display: flex;
-              align-items: center;
               justify-content: center;
+            }
+            main {
+              width: 500px;
+              margin: 0;
+              padding: 0;
             }
             h1 {
               color: white;
