@@ -68,6 +68,7 @@ const Index = () => {
               text-align: center;
             }
             img.candidate {
+              width: 100%;
               align-self: center;
             }
             img.save-link {
