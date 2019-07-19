@@ -68,7 +68,6 @@ const Index = () => {
               text-align: center;
             }
             img.candidate {
-              width: 500px;
               align-self: center;
             }
             img.save-link {
@@ -126,6 +125,9 @@ const Index = () => {
             }
             @media only screen and (min-width: 768px) {
               main {
+                width: 500px;
+              }
+              img.candidate {
                 width: 500px;
               }
               .save-wrapper {
