@@ -3,18 +3,13 @@ import Head from 'next/head'
 import domToImage from 'dom-to-image'
 import { saveAs } from 'file-saver'
 import candidates from '../lib/candidates'
-import randomEntry from '../lib/random-entry'
-
-function getRandomCandidate () {
-  return randomEntry(candidates)
-}
 
 function getCandidate (id) {
   return candidates.find(candidate => candidate.id === id)
 }
 
 const Index = () => {
-  const [candidate, setCandidate] = useState(getRandomCandidate())
+  const [candidate, setCandidate] = useState(getCandidate('cecilie'))
   
   const showCandidate = event => {
     event.preventDefault()
@@ -135,7 +130,7 @@ const Index = () => {
         </div>
         <div className='candidates'>
           <h2>Flere flotte kandidater</h2>
-          {candidates.map(candidate => <p><a href='' onClick={showCandidate} id={candidate.id} key={`candidate-${candidate.id}`}>{candidate.name}</a></p>)}
+          {candidates.map(candidate => <p key={`candidate-${candidate.id}`}><a href='' onClick={showCandidate} id={candidate.id}>{candidate.name}</a></p>)}
         </div>
       </main>
     </div>
