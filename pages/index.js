@@ -5,40 +5,35 @@ import { saveAs } from 'file-saver'
 import candidates from '../lib/candidates'
 import randomEntry from '../lib/random-entry'
 
-function getCandidate () {
+function getRandomCandidate () {
   return randomEntry(candidates)
 }
 
+function getCandidate (id) {
+  return candidates.find(candidate => candidate.id === id)
+}
+
 const Index = () => {
-  const [candidate, setCandidate] = useState(getCandidate())
+  const [candidate, setCandidate] = useState(getRandomCandidate())
   
   const showCandidate = event => {
     event.preventDefault()
     console.log(event.target.id)
-    setCandidate(getCandidate())
+    setCandidate(getCandidate(event.target.id))
   }
 
   const saveCard = async event => {
     event.preventDefault()
-    const blob = await domToImage.toBlob(window.document.getElementById('hanna-card'))
+    const blob = await domToImage.toBlob(window.document.getElementById('candidate-card'))
     saveAs(blob, `hanna-${new Date().getTime()}.png`)
   }
 
   return (
     <div>
       <Head>
-        <link rel='apple-touch-icon' sizes='57x57' href='static/apple-icon-57x57.png' />
-        <link rel='apple-touch-icon' sizes='60x60' href='static/apple-icon-60x60.png' />
-        <link rel='apple-touch-icon' sizes='72x72' href='static/apple-icon-72x72.png' />
-        <link rel='apple-touch-icon' sizes='76x76' href='static/apple-icon-76x76.png' />
-        <link rel='apple-touch-icon' sizes='114x114' href='static/apple-icon-114x114.png' />
-        <link rel='apple-touch-icon' sizes='120x120' href='static/apple-icon-120x120.png' />
-        <link rel='apple-touch-icon' sizes='144x144' href='static/apple-icon-144x144.png' />
-        <link rel='apple-touch-icon' sizes='152x152' href='static/apple-icon-152x152.png' />
-        <link rel='apple-touch-icon' sizes='180x180' href='static/apple-icon-180x180.png' />
+        <link rel='apple-touch-icon' href='static/apple-touch-icon.png' />
         <link rel='icon' type='image/png' sizes='192x192' href='static/android-icon-192x192.png' />
         <link rel='icon' type='image/png' sizes='32x32' href='static/favicon-32x32.png' />
-        <link rel='icon' type='image/png' sizes='96x96' href='static/favicon-96x96.png' />
         <link rel='icon' type='image/png' sizes='16x16' href='static/favicon-16x16.png' />
         <link rel='manifest' href='static/manifest.json' />
         <meta name='msapplication-TileColor' content='#ffffff' />
@@ -49,11 +44,8 @@ const Index = () => {
         <title>Rødt Notodden valg 2019</title>
       </Head>
       <main>
-        <div className={'wrapper'} id='hanna-card'>
+        <div className={'wrapper'} id='candidate-card'>
           <h1>{candidate.name}</h1>
-          <div className="description">
-            {candidate.description}
-          </div>
           <div className="img-wrapper">
             <img src={candidate.image} alt={`${candidate.name}: ${candidate.statement}`} className="candidate" />
           </div>
@@ -96,11 +88,12 @@ const Index = () => {
               background-color: #e52437;
             }
             .description {
+              width: 600px;
               text-align: left;
               font-weight: 500;
               font-size: 18px;
               padding: 15px;
-              color: white;
+              color: black;
             }
             .statement {
               text-align: left;
@@ -121,8 +114,15 @@ const Index = () => {
             .save-link:hover, .save-link:active {
               outline: none;
             }
-            .candidates.p {
+            .candidates {
+              width: 600px;
+            }
+            .candidates a, .candidates a:visited {
+              color: #2e3c46;
+            }
 
+            .candidates a:hover, .candidates a:active {
+              color: #e52437;
             }
           `}
           </style>
@@ -130,8 +130,12 @@ const Index = () => {
         <div className='save-wrapper'>
           <img src='/static/floppy.png' className='save-link' alt='Trykk for å lagre som bilde' role='button' tabIndex='0' onClick={saveCard} />
         </div>
+        <div className="description">
+          {candidate.name} ({candidate.age}) - {candidate.description}
+        </div>
         <div className='candidates'>
-          {candidates.map(candidate => <a href='' onClick={showCandidate} id={candidate.id} key={`candidate-${candidate.id}`}>{candidate.name}</a>)}
+          <h2>Alle våre kandidater</h2>
+          {candidates.map(candidate => <p><a href='' onClick={showCandidate} id={candidate.id} key={`candidate-${candidate.id}`}>{candidate.name}</a></p>)}
         </div>
       </main>
     </div>
