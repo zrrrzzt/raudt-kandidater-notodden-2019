@@ -39,12 +39,14 @@ const Index = () => {
       </Head>
       <main>
         <div className={'wrapper'} id='candidate-card'>
-          <h1>{candidate.name}</h1>
-          <div className="img-wrapper">
-            <img src={candidate.image} alt={`${candidate.name}: ${candidate.statement}`} className="candidate" />
-          </div>
-          <div className='statement'>
-            {candidate.statement}
+          <div className="candidate">
+            <h1>{candidate.name}</h1>
+            <div className="img-wrapper">
+              <img src={candidate.image} alt={`${candidate.name}: ${candidate.statement}`} className="candidate" />
+            </div>
+            <div className='statement'>
+              {candidate.statement}
+            </div>
           </div>
           <style jsx global>
             {`
@@ -63,6 +65,9 @@ const Index = () => {
               width: 500px;
               align-self: center;
             }
+            img.logo {
+              width: 32px;
+            }
             img.save-link {
               height: 40px;
               border-radius: 0px;
@@ -74,15 +79,23 @@ const Index = () => {
               display: flex;
               justify-content: center;
             }
+            .heading {
+              display: flex;
+              justify-content: center;
+              margin-bottom: 10px;
+            }
             .wrapper {
               padding-top: 10px 5px;
-              width: 600px;
+              width: 500px;
               display: flex;
               flex-direction: column;
+            }
+            .candidate {
               background-color: #e52437;
+              width: 500px;
             }
             .description {
-              width: 600px;
+              width: 500px;
               text-align: left;
               font-weight: 500;
               font-size: 18px;
@@ -97,7 +110,7 @@ const Index = () => {
               color: white;
             }
             .save-wrapper {
-              width: 600px;
+              width: 500px;
               margin-top: 10px;
               text-align: right;
             }
@@ -115,7 +128,6 @@ const Index = () => {
             .candidates a, .candidates a:visited {
               color: #2e3c46;
             }
-
             .candidates a:hover, .candidates a:active {
               color: #e52437;
             }
