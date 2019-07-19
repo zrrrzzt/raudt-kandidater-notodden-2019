@@ -41,7 +41,6 @@ const Index = () => {
         <h1>Rødt Notodden valg 2019</h1>
         <div className={'wrapper'} id='candidate-card'>
           <div className="candidate">
-            <div className="header">{candidate.name}</div>
             <div className="img-wrapper">
               <img src={candidate.image} alt={`${candidate.name}: ${candidate.statement}`} className="candidate" />
             </div>
@@ -161,6 +160,7 @@ const Index = () => {
           </style>
           <div className="footer">
             <div className="description">
+              <b>{candidate.name}</b><br/>
               {candidate.description}
             </div>
             <img src="static/logo.svg" alt="Rødt logo" className="logo"/>
