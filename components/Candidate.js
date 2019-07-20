@@ -21,39 +21,53 @@ const Candidate = props => {
             {candidate.statement}
           </div>
         </div>
-        <style jsx global>
-          {`
-            img.candidate {
-              width: 100%;
-              align-self: center;
-            }
-            img.save-link {
-              height: 40px;
-              border-radius: 0px;
-              border: 0px;
-              margin-left: 5px;
-              cursor: pointer;
-            }
-            .img-wrapper {
-              display: flex;
-              justify-content: center;
-            }
-            .wrapper {
-              padding: 0;
-              margin: 0;
-              display: flex;
-              flex-direction: column;
-            }
-            .candidate {
-              background-color: #e90302;
-            }
+        <div className='footer'>
+          <div className='name'>{candidate.name}</div>
+          <div className='description'>{candidate.description}</div>
+          <img src='static/logo.svg' alt='Rødt logo' className='logo' />
+        </div>
+      </div>
+      <div className='save-wrapper'>
+        <img src='/static/floppy.png' className='save-link' alt='Trykk for å lagre som bilde' role='button' tabIndex='0' onClick={saveCard} />
+      </div>
+      <style jsx global>
+        {`
+          img.candidate {
+            width: 100%;
+            align-self: center;
+          }
+          img.save-link {
+            height: 40px;
+            border-radius: 0px;
+            border: 0px;
+            margin-left: 5px;
+            cursor: pointer;
+          }
+          .img-wrapper {
+            display: flex;
+            justify-content: center;
+          }
+          .wrapper {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+          }
+          .candidate {
+            background-color: #e90302;
+          }
+          .name {
+            text-align: left;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 15px 15px 0 15px;
+            margin-bottom: 5px;
+          }
           .description {
             text-align: left;
             font-size: 18px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 0 15px 0 15px;
+            margin-bottom: 5px;
           }
           .statement {
             text-align: left;
@@ -102,7 +116,7 @@ const Candidate = props => {
           .logo {
             align-self: center;
             width: 50px;
-            padding: 15px;
+            padding-bottom: 15px;
           }
           @media only screen and (min-width: 768px) {
             img.candidate {
@@ -112,19 +126,8 @@ const Candidate = props => {
               display: block;
             }
           }
-        `}
-        </style>
-        <div className='footer'>
-          <div className='description'>
-            <b>{candidate.name}</b><br />
-            {candidate.description}
-          </div>
-          <img src='static/logo.svg' alt='Rødt logo' className='logo' />
-        </div>
-      </div>
-      <div className='save-wrapper'>
-        <img src='/static/floppy.png' className='save-link' alt='Trykk for å lagre som bilde' role='button' tabIndex='0' onClick={saveCard} />
-      </div>
+      `}
+      </style>
     </div>
   )
 }

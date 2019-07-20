@@ -19,7 +19,7 @@ const Index = () => {
         <title>Rødt Notodden valg 2019</title>
       </Head>
       <main>
-        <h1>Rødt Notodden valg 2019</h1>
+        <h1>Rødt Notodden 2019</h1>
         <Candidate candidate={candidate} />
         <div className='candidates'>
           <h2>Flere flotte kandidater</h2>
