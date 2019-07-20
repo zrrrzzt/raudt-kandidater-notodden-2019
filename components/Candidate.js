@@ -45,7 +45,7 @@ const Candidate = props => {
               flex-direction: column;
             }
             .candidate {
-              background-color: #e52437;
+              background-color: #e90302;
             }
           .description {
             text-align: left;
@@ -81,7 +81,7 @@ const Candidate = props => {
             color: #2e3c46;
           }
           .candidates a:hover, .candidates a:active {
-            color: #e52437;
+            color: #e90302;
           }
           .header {
             color: white;
@@ -93,11 +93,14 @@ const Candidate = props => {
             margin:0;
             padding: 0;
             display: flex;
-            background-color: #f5f7f8;
-            justify-content: space-between;
+            flex-direction: column;
+            text-align: center;
+            background-color: #fdfcf8;
+            justify-content: center;
             align-content: center;
           }
           .logo {
+            align-self: center;
             width: 50px;
             padding: 15px;
           }
