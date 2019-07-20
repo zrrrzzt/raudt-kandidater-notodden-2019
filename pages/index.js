@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
-import candidates from '../lib/candidates'
 import getCandidate from '../lib/get-candidate'
 import Candidate from '../components/Candidate'
+import Candidates from '../components/Candidates'
 
 const Index = () => {
   const [candidate, setCandidate] = useState(getCandidate('cecilie'))
@@ -21,11 +21,7 @@ const Index = () => {
       <main>
         <h1>Rødt Notodden 2019</h1>
         <Candidate candidate={candidate} />
-        <div className='candidates'>
-          <h2>Flere flotte kandidater</h2>
-          {candidates.map(candidate => <p key={`candidate-${candidate.id}`}>
-            <a href='/' id={candidate.id} onClick={switchCandidate}>{candidate.name}</a></p>)}
-        </div>
+        <Candidates switchCandidate={switchCandidate} />
       </main>
       <style jsx global>
         {`
@@ -45,15 +41,6 @@ const Index = () => {
         }
         h1 {
           text-align: center;
-        }
-        .candidates {
-          padding: 15px;
-        }
-        .candidates a, .candidates a:visited {
-          color: #2e3c46;
-        }
-        .candidates a:hover, .candidates a:active {
-          color: #e52437;
         }
         @media only screen and (min-width: 768px) {
           main {
