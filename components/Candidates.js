@@ -1,13 +1,13 @@
+import Link from 'next/link'
 import candidates from '../lib/candidates'
 
-const Candidates = props => {
-  const { switchCandidate } = props
+const Candidates = () => {
   return (
     <div>
       <div className='candidates'>
         <h2>Flere flotte kandidater</h2>
         {candidates.map(candidate => <p key={`candidate-${candidate.id}`}>
-          <a href='/' id={candidate.id} onClick={switchCandidate}>{candidate.name}</a></p>)}
+          <Link href='/[cid]' as={`/${candidate.id}`}><a>{candidate.name}</a></Link></p>)}
       </div>
       <style jsx global>
         {`

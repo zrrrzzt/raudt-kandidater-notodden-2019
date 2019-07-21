@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import Router, { useRouter } from 'next/router'
 import Head from 'next/head'
 import getCandidate from '../lib/get-candidate'
 import Candidate from '../components/Candidate'
 import Candidates from '../components/Candidates'
 
-const Index = () => {
-  const [candidate] = useState(getCandidate('cecilie'))
-
+const Details = ({ candidate }) => {
+  const router = useRouter()
+  const { cid } = router.query
+  candidate = getCandidate(cid) 
+  
   return (
     <div>
       <Head>
@@ -47,4 +49,12 @@ const Index = () => {
   )
 }
 
-export default Index
+Details.getInitialProps = async ({ req }) => {
+  const path = req ? req.url : window.location.pathname
+  const list = path.split('/')
+  const cid = list.length > 0 ? list.pop() : 'cecilie'
+  const candidate = getCandidate(cid)
+  return { candidate: candidate }
+}
+
+export default Details
