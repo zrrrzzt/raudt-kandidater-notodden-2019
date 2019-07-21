@@ -10,7 +10,8 @@ const Index = () => {
   return (
     <div>
       <Head>
-        <title>Rødt Notodden valg 2019</title>
+        <meta name='description' content='Møt listekandidatene for Rødt Notodden til kommunevalget 2019' />
+        <title>Rødt Notodden listekandidater valg 2019</title>
       </Head>
       <main>
         <h1>Rødt Notodden 2019</h1>

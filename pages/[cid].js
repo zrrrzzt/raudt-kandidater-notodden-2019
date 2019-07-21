@@ -12,7 +12,14 @@ const Details = ({ candidate }) => {
   return (
     <div>
       <Head>
-        <title>Rødt Notodden valg 2019</title>
+        <title>{candidate.name} - Rødt Notodden</title>
+        <meta name='description' content={candidate.statement} />
+        <meta property='og:title' content={`${candidate.name} - Rødt Notodden`} />
+        <meta property='og:description' content={candidate.statement} />
+        <meta property='og:image' content={`static/images/${candidate.image}`} />
+        <meta property='og:type' content='article' />
+        <meta property='og:site_name' content='Rødt Notodden - listekandidater til kommunevalget 2019' />
+        <meta property='og:url' content={`/${candidate.id}`} />
       </Head>
       <main>
         <h1>Rødt Notodden 2019</h1>
