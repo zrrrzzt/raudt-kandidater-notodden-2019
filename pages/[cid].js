@@ -14,7 +14,7 @@ const Details = ({ candidate }) => {
       <Head>
         <title>{candidate.name} - Rødt Notodden</title>
         <meta name='description' content={candidate.statement} />
-        <meta property='og:title' content={`${candidate.name} - Rødt Notodden`} />
+        <meta property='og:title' content={`${candidate.name}`} />
         <meta property='og:description' content={candidate.statement} />
         <meta property='og:image' content={`https://2019.kandidater.notodden.raudt.party/static/images/${candidate.image}`} />
         <meta property='og:type' content='article' />
