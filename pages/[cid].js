@@ -20,6 +20,7 @@ const Details = ({ candidate }) => {
         <meta property='og:type' content='article' />
         <meta property='og:site_name' content='Rødt Notodden - listekandidater til kommunevalget 2019' />
         <meta property='og:url' content={`https://2019.kandidater.notodden.raudt.party/${candidate.id}`} />
+        <meta property='og:site_name' content='Rødt Notodden - valg 2019' />
       </Head>
       <main>
         <h1>Rødt Notodden 2019</h1>
