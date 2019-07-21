@@ -1,4 +1,4 @@
-import Router, { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import getCandidate from '../lib/get-candidate'
 import Candidate from '../components/Candidate'
@@ -7,8 +7,8 @@ import Candidates from '../components/Candidates'
 const Details = ({ candidate }) => {
   const router = useRouter()
   const { cid } = router.query
-  candidate = getCandidate(cid) 
-  
+  candidate = getCandidate(cid)
+
   return (
     <div>
       <Head>
