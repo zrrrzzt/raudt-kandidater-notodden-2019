@@ -100,7 +100,8 @@ const Candidate = props => {
           }
           .statement {
             text-align: center;
-            font-size: 22px;
+            font-size: 20px;
+            line-height: 1.25em;
             padding: 10px;
           }
           .save-wrapper {
