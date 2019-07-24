@@ -84,7 +84,7 @@ const Candidate = props => {
           }
           .name {
             text-align: center;
-            font-size: 18px;
+            font-size: ${profile ? 20 : 18}px;
             font-weight: 400;
             padding: 15px 15px 0 15px;
             margin-bottom: 5px;
@@ -92,7 +92,7 @@ const Candidate = props => {
           }
           .description {
             text-align: center;
-            font-size: 18px;
+            font-size: ${profile ? 20 : 18}px;
             padding: 0 15px 0 15px;
             margin-bottom: 5px;
           }
