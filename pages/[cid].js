@@ -23,7 +23,6 @@ const Details = ({ candidate }) => {
         <meta property='og:site_name' content='Rødt Notodden - valg 2019' />
       </Head>
       <main>
-        <h1>Rødt Notodden 2019</h1>
         <Candidate candidate={candidate} />
         <Candidates />
       </main>
