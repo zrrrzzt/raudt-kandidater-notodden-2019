@@ -28,6 +28,10 @@
       "X-Frame-Options": "DENY",
       "X-Content-Type-Options": "nosniff"
     }},
+    {
+      "src": "/robots.txt",
+      "dest": "/static/robots.txt"
+    },
     {"src": "(.*)", "dest": "/$1"}
   ]
 }
