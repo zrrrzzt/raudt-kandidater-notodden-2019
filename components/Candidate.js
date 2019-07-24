@@ -47,7 +47,7 @@ const Candidate = props => {
         {`
           div.floatingLogo {
             position: relative;
-            top: -90px;
+            top: -80px;
             left: 50%;
             transform: translate(-50%, 50%);
             width: 90px;
