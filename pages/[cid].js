@@ -6,9 +6,8 @@ import Candidates from '../components/Candidates'
 
 const Details = ({ candidate }) => {
   const router = useRouter()
-  const { cid } = router.query
+  const { cid, profile } = router.query
   candidate = getCandidate(cid)
-
   return (
     <div>
       <Head>
@@ -16,14 +15,14 @@ const Details = ({ candidate }) => {
         <meta name='description' content={candidate.statement} />
         <meta property='og:title' content={`${candidate.name}`} />
         <meta property='og:description' content={candidate.statement} />
-        <meta property='og:image' content={`https://2019.kandidater.notodden.raudt.party/static/images/${candidate.image}`} />
+        <meta property='og:image' content={`https://2019.kandidater.notodden.raudt.party/static/images/${candidate.profileImage}`} />
         <meta property='og:type' content='article' />
         <meta property='og:site_name' content='Rødt Notodden - listekandidater til kommunevalget 2019' />
         <meta property='og:url' content={`https://2019.kandidater.notodden.raudt.party/${candidate.id}`} />
         <meta property='og:site_name' content='Rødt Notodden - valg 2019' />
       </Head>
       <main>
-        <Candidate candidate={candidate} />
+        <Candidate candidate={candidate} profile={profile}/>
         <Candidates />
       </main>
       <style jsx global>
@@ -59,10 +58,11 @@ const Details = ({ candidate }) => {
 
 Details.getInitialProps = async ({ req }) => {
   const path = req ? req.url : window.location.pathname
+  const query = req ? req.query : window.location.query
   const list = path.split('/')
   const cid = list.length > 0 ? list.pop() : 'cecilie'
   const candidate = getCandidate(cid)
-  return { candidate: candidate }
+  return { candidate: Object.assign({}, candidate, query) }
 }
 
 export default Details

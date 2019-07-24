@@ -2,7 +2,7 @@ import domToImage from 'dom-to-image'
 import { saveAs } from 'file-saver'
 
 const Candidate = props => {
-  const { candidate } = props
+  const { candidate, profile } = props
 
   const saveCard = async event => {
     event.preventDefault()
@@ -31,9 +31,7 @@ const Candidate = props => {
               </g>
             </svg>
           </div>
-          <div className='statement'>
-            {candidate.statement}
-          </div>
+          {profile ? false : <div className='statement'>{candidate.statement}</div>}
         </div>
         <div className='footer'>
           <div className='name'>{candidate.name}</div>
