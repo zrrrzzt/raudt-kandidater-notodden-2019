@@ -7,7 +7,17 @@ const Candidate = props => {
   const saveCard = async event => {
     event.preventDefault()
     const blob = await domToImage.toBlob(window.document.getElementById('candidate-card'))
-    saveAs(blob, `${candidate.id}-${new Date().getTime()}.png`)
+    saveAs(blob, `${candidate.id}-${profile ? 'profile' : new Date().getTime()}.png`)
+  }
+
+  const shareToFacebook = event => {
+    const shareUrl = `https://www.facebook.com/sharer.php?u=${encodeURI(window.location.href)}`
+    window.location = shareUrl
+  }
+
+  const shareToTwitter = event => {
+    const shareUrl = `https://twitter.com/intent/tweet?url=${encodeURI(window.location.href)}`
+    window.location = shareUrl
   }
 
   return (
@@ -39,7 +49,9 @@ const Candidate = props => {
         </div>
       </div>
       <div className='save-wrapper'>
-        <img src='/static/floppy.png' className='save-link' alt='Trykk for å lagre som bilde' role='button' tabIndex='0' onClick={saveCard} />
+        <img src='/static/twitter-logo.png' className='share-link' alt='Del på Twitter' role='button' tabIndex='0' onClick={shareToTwitter} />
+        <img src='/static/facebook-logo.png' className='share-link' alt='Del på Facebook' role='button' tabIndex='0' onClick={shareToFacebook} />
+        <img src='/static/floppy-disk.png' className='save-link' alt='Trykk for å lagre som bilde' role='button' tabIndex='0' onClick={saveCard} />
       </div>
       <style jsx global>
         {`
@@ -62,6 +74,14 @@ const Candidate = props => {
             align-self: center;
           }
           img.save-link {
+            height: 40px;
+            border-radius: 0px;
+            border: 0px;
+            margin-left: 5px;
+            cursor: pointer;
+            display: none;
+          }
+          img.share-link {
             height: 40px;
             border-radius: 0px;
             border: 0px;
@@ -104,16 +124,8 @@ const Candidate = props => {
           }
           .save-wrapper {
             margin-top: 10px;
+            padding-right: 10px;
             text-align: right;
-            display: none;
-          }
-          .save-link {
-            text-decoration: none;
-            font-size: 2em;
-            padding: 5px;
-          }
-          .save-link:hover, .save-link:active {
-            outline: none;
           }
           .candidates {
             padding: 15px;
@@ -149,8 +161,8 @@ const Candidate = props => {
             img.candidate {
               width: 500px;
             }
-            .save-wrapper {
-              display: block;
+            img.save-link {
+              display: inline;
             }
           }
       `}
