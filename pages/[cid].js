@@ -22,7 +22,7 @@ const Details = ({ candidate }) => {
         <meta property='og:site_name' content='Rødt Notodden - valg 2019' />
       </Head>
       <main>
-        <Candidate candidate={candidate} profile={profile}/>
+        <Candidate candidate={candidate} profile={profile} />
         <Candidates />
       </main>
       <style jsx global>
