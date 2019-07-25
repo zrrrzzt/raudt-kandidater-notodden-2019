@@ -26,7 +26,7 @@ const Candidate = props => {
         <div className='candidate'>
           <div className='img-wrapper'>
             <div className='overlay' />
-            <img src={`static/images/${candidate.image}`} alt={`${candidate.name}: ${candidate.statement}`} className='candidate' />
+            <img src={`/static/images/${candidate.image}`} alt={`${candidate.name}: ${candidate.statement}`} className='candidate' />
           </div>
           <div className='floatingLogo'>
             <svg width='56' height='56' viewBox='0 0 359 359' version='1.1'>
@@ -50,9 +50,9 @@ const Candidate = props => {
         </div>
       </div>
       <div className='save-wrapper'>
-        <img src='/static/twitter-logo.png' className='share-link' alt='Del på Twitter' role='button' tabIndex='0' onClick={shareToTwitter} />
-        <img src='/static/facebook-logo.png' className='share-link' alt='Del på Facebook' role='button' tabIndex='0' onClick={shareToFacebook} />
-        <img src='/static/floppy-disk.png' className='save-link' alt='Trykk for å lagre som bilde' role='button' tabIndex='0' onClick={saveCard} />
+        <img src='/static/icons/twitter-logo.png' className='share-link' alt='Del på Twitter' role='button' tabIndex='0' onClick={shareToTwitter} />
+        <img src='/static/icons/facebook-logo.png' className='share-link' alt='Del på Facebook' role='button' tabIndex='0' onClick={shareToFacebook} />
+        <img src='/static/icons/floppy-disk.png' className='save-link' alt='Trykk for å lagre som bilde' role='button' tabIndex='0' onClick={saveCard} />
       </div>
       <style jsx global>
         {`
