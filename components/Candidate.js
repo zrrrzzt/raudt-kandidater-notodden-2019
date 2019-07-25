@@ -25,6 +25,7 @@ const Candidate = props => {
       <div className={'wrapper'} id='candidate-card'>
         <div className='candidate'>
           <div className='img-wrapper'>
+            <div className='overlay' />
             <img src={`static/images/${candidate.image}`} alt={`${candidate.name}: ${candidate.statement}`} className='candidate' />
           </div>
           <div className='floatingLogo'>
@@ -68,6 +69,7 @@ const Candidate = props => {
             margin-bottom: -50px;
             border-radius: 50%;
             background-color: rgb(253, 252, 248);
+            z-index: 3;
           }
           img.candidate {
             width: 100%;
@@ -89,8 +91,18 @@ const Candidate = props => {
             cursor: pointer;
           }
           .img-wrapper {
+            position: relative;
             display: flex;
             justify-content: center;
+          }
+          .overlay {
+            position:absolute;
+            bottom:0px;
+            left:0px;
+            background: linear-gradient(rgba(227, 29, 38, 0) 0%, rgba(227, 29, 38, 0.5) 100%);
+            width: 100%;
+            height: 50%;
+            z-index: 2;
           }
           .wrapper {
             padding: 0;
