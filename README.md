@@ -21,7 +21,7 @@ $ npm run dev
 ## Legge inn nye kandidater
 
 - Legg de inn i listen på [lib/candidates.js](lib/candidates.js)
-- legg hovedbildet bildet inn i [static/images](static/image)
+- legg hovedbildet bildet inn i [static/images](static/image) - bildet bør være 500px bredt
 - for å generere profilbildet gå til `/:kandidatid?profile=1`last ned og legg i static/images
 
 # Deploy - Manuell
