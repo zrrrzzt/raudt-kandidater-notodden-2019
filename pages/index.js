@@ -23,7 +23,7 @@ const Index = () => {
         body {
           margin: 0;
           padding: 0;
-          font-family: Suisse, Helvetica, Arial;
+          font-family: Suisse, Helvetica, Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           background-color: white;
           color: #2e3c46;

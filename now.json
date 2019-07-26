@@ -31,7 +31,6 @@
     {
       "src": "/robots.txt",
       "dest": "/static/robots.txt"
-    },
-    {"src": "(.*)", "dest": "/$1"}
+    }
   ]
 }
