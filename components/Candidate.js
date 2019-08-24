@@ -22,7 +22,7 @@ const Candidate = props => {
 
   return (
     <div>
-      <div className={'wrapper'} id='candidate-card'>
+      <div className='wrapper' id='candidate-card'>
         <div className='candidate'>
           <div className='img-wrapper'>
             <div className='overlay' />

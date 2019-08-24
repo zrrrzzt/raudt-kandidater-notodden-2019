@@ -27,30 +27,30 @@ const Details = ({ candidate }) => {
       </main>
       <style jsx global>
         {`
-        body {
-          margin: 0;
-          padding: 0;
-          font-family: Suisse, Helvetica, Arial, sans-serif;
-          -webkit-font-smoothing: antialiased;
-          background-color: white;
-          color: #2e3c46;
-          display: flex;
-          justify-content: center;
-        }
-        main {
-          width: 100%;
-          margin: 0;
-          padding: 0;
-        }
-        h1 {
-          text-align: center;
-        }
-        @media only screen and (min-width: 768px) {
-          main {
-            width: 500px;
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: Suisse, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background-color: white;
+            color: #2e3c46;
+            display: flex;
+            justify-content: center;
           }
-        }
-      `}
+          main {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+          }
+          h1 {
+            text-align: center;
+          }
+          @media only screen and (min-width: 768px) {
+            main {
+              width: 500px;
+            }
+          }
+        `}
       </style>
     </div>
   )
