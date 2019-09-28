@@ -29,7 +29,7 @@
   "dependencies": {
     "dom-to-image": "2.6.0",
     "file-saver": "2.0.2",
-    "next": "9.0.6",
+    "next": "9.0.7",
     "next-offline": "4.0.5",
     "react": "16.10.0",
     "react-dom": "16.10.0"
