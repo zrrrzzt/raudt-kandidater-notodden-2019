@@ -1,0 +1,23 @@
+on:
+  release:
+    types: [published]
+    branches:
+      - master
+name: Test and Deploy on release
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: Install dependencies
+      run: npm install
+    - name: Run tests
+      run: npm test
+    - name: Deploy to Vercel
+      env:
+        ZEIT_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      run: now --prod --confirm --token ${VERCEL_TOKEN}
